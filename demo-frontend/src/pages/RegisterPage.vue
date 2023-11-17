@@ -56,7 +56,7 @@
 <script setup lang="ts">
 import { defineComponent, ref } from 'vue'
 import { pythonApi } from 'src/boot/axios';
-import { Notify, SessionStorage } from 'quasar';
+import { Notify } from 'quasar';
 import { useRouter } from 'vue-router';
 
 defineComponent({

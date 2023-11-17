@@ -13,14 +13,21 @@ export const useListStore = defineStore('list', {
   },
 
   actions: {
-    listInit (list: object) {
+    listInit (list: unknown) {
       this.list = list;
     },
     deleteList (list_id: number) {
-      const index = this.list.findIndex((item: any) => item.list_id === list_id);
+      const index = this.list.findIndex((item: any) => item.id === list_id);
       if (index !== -1) {
         this.list.splice(index, 1);
       }
+    },
+    markDone (list_id: number) {
+      const index = this.list.findIndex((item: any) => item.id === list_id);
+      if (index !== -1) {
+        this.list[index].status = 'done';
+      }
+
     }
   }
 });

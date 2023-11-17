@@ -8,9 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Todolist extends Model
 {
     use HasFactory;
+
+    protected $table = 'lists_table';
     protected $fillable =[
         'user_id',
-        'task',
+        'list_name',
+        'list_desc',
         'status',
     ];
 }

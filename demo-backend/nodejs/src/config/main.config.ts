@@ -6,8 +6,8 @@ dotenv.config();
 // MySQL database
 const MYSQL_HOST = process.env.MYSQLHOST || "localhost";
 const MYSQL_USER = process.env.MYSQLUSER || "root";
-const MYSQL_PASS = process.env.MYSQLPASSWORD || "";
-const MYSQL_DATABASE = process.env.MYSQLDATABASE || "cpclibrary";
+const MYSQL_PASS = process.env.MYSQLPASSWORD || "31N$t31n";
+const MYSQL_DATABASE = process.env.MYSQLDATABASE || "demoipt";
 
 const MYSQL = {
   host: MYSQL_HOST,
@@ -17,7 +17,7 @@ const MYSQL = {
 };
 
 const SERVER_HOST = process.env.HOST || "localhost";
-const SERVER_PORT = process.env.MYSQLPORT || 1337;
+const SERVER_PORT = process.env.MYSQLPORT || 3306;
 
 const MYSQL_URL = `mysql://${MYSQL_USER}:${MYSQL_PASS}@${MYSQL_HOST}:${SERVER_PORT}/${MYSQL_DATABASE}`
 
@@ -29,7 +29,6 @@ const SERVER = {
 const config = {
   mysql: MYSQL,
   server: SERVER,
-  imgDir: path.join(__dirname, "../public/images"),
   mysqlurl: MYSQL_URL
 };
 

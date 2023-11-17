@@ -1,4 +1,4 @@
-import { Connect, Query } from "../config/mysql";
+import { Connect, Query } from "../config/mysql.config";
 
 const executeQuery = async (query: string, params: any[] = []) => {
   try {

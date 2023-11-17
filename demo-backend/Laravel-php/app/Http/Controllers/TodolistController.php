@@ -20,6 +20,6 @@ class TodolistController extends Controller
         return Service::doneTask($request);
     }
     public static function deleteTask(Request $request){
-        return Service::deleteTask($request);   
+        return Service::deleteTask($request);
     }
 }

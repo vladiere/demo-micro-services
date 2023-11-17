@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('todolists', function (Blueprint $table) {
+        Schema::create('lists_table', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('task');
+            $table->string('list_name');
+            $table->string('list_desc');
             $table->string('status')->default('undone');
             $table->timestamps();
         });
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('todolists');
+        Schema::dropIfExists('lists_table');
     }
 };

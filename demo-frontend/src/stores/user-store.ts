@@ -14,7 +14,7 @@ export const useUserStore = defineStore('user', {
 
   actions: {
     initUser (tokens: string) {
-      this.token = tokens.token;
+      this.token = tokens;
       this.authenticated = true;
     },
     clearUser () {
