@@ -1,42 +1,44 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+  <q-page padding>
+      <div class="column items-center q-gutter-y-md">
+        <q-input
+          placeholder="Search list"
+          outlined
+          rounded
+          dense
+          v-model="search"
+        >
+          <template v-slot:append>
+            <q-icon name="mdi-magnify" />
+          </template>
+        </q-input>
+        <q-virtual-scroll
+          style="max-height: calc(100% - 90px)"
+          :items="lists"
+          separator
+          v-slot="{ item, index }"
+        >
+          <ListComponent :key="index" v-bind="item" />
+        </q-virtual-scroll>
+      </div>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
-import { ref } from 'vue';
+import { defineComponent, defineAsyncComponent, ref } from 'vue';
+import { ListProps } from 'components/ListComponent.vue';
 
-const todos = ref<Todo[]>([
-  {
-    id: 1,
-    content: 'ct1'
-  },
-  {
-    id: 2,
-    content: 'ct2'
-  },
-  {
-    id: 3,
-    content: 'ct3'
-  },
-  {
-    id: 4,
-    content: 'ct4'
-  },
-  {
-    id: 5,
-    content: 'ct5'
-  }
-]);
-const meta = ref<Meta>({
-  totalCount: 1200
+defineComponent({
+  name: 'IndexPage'
 });
+
+const ListComponent = defineAsyncComponent({
+  loader: () => import('components/ListComponent.vue'),
+  delay: 300,
+  suspensible: false,
+  timeout: 2300,
+});
+
+const search = ref('');
+const lists = ref<ListProps>([]);
 </script>
